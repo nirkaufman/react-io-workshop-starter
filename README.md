@@ -143,14 +143,13 @@ my-app/
     App.js
     App.test.js
     index.css
-    index.js
-    logo.svg
+    ListPage.jslogo.svg
 ```
 
 For the project to build, **these files must exist with exact filenames**:
 
 - `public/index.html` is the page template;
-- `src/index.js` is the JavaScript entry point.
+- `src/ListPage.jsthe JavaScript entry point.
 
 You can delete or rename the other files.
 
@@ -509,7 +508,7 @@ class Button extends Component {
 
 In development, expressing dependencies this way allows your styles to be reloaded on the fly as you edit them. In production, all CSS files will be concatenated into a single minified `.css` file in the build output.
 
-If you are concerned about using Webpack-specific semantics, you can put all your CSS right into `src/index.css`. It would still be imported from `src/index.js`, but you could always remove that import if you later migrate to a different build tool.
+If you are concerned about using Webpack-specific semantics, you can put all your CSS right into `src/index.css`. It would still be imported from `src/ListPage.jst you could always remove that import if you later migrate to a different build tool.
 
 ## Adding a CSS Modules Stylesheet
 
@@ -789,7 +788,7 @@ Alternatively you may use `yarn`:
 yarn add bootstrap@4 reactstrap
 ```
 
-Import Bootstrap CSS and optionally Bootstrap theme CSS in the beginning of your `src/index.js` file:
+Import Bootstrap CSS and optionally Bootstrap theme CSS in the beginning of your `src/ListPage.jse:
 
 ```js
 import 'bootstrap/dist/css/bootstrap.css';
@@ -824,7 +823,7 @@ $body-bg: #000;
 
 > **Note:** You must prefix imports from `node_modules` with `~` as displayed above.
 
-Finally, import the newly created `.scss` file instead of the default Bootstrap `.css` in the beginning of your `src/index.js` file, for example:
+Finally, import the newly created `.scss` file instead of the default Bootstrap `.css` in the beginning of your `src/ListPagefile, for example:
 
 ```javascript
 import './custom.scss';
@@ -1778,7 +1777,7 @@ the build process will generate a service worker file, but it will not be
 registered, so it will not take control of your production web app.
 
 In order to opt-in to the offline-first behavior, developers should look for the
-following in their [`src/index.js`](src/index.js) file:
+following in their [`src/ListPage.jsc/index.js) file:
 
 ```js
 // If you want your app to work offline and load faster, you can change
@@ -2387,7 +2386,7 @@ When you save a file while `npm start` is running, the browser should refresh wi
 If this doesn’t happen, try one of the following workarounds:
 
 - If your project is in a Dropbox folder, try moving it out.
-- If the watcher doesn’t see a file called `index.js` and you’re referencing it by the folder name, you [need to restart the watcher](https://github.com/facebook/create-react-app/issues/1164) due to a Webpack bug.
+- If the watcher doesn’t see a file called `ListPage.js you’re referencing it by the folder name, you [need to restart the watcher](https://github.com/facebook/create-react-app/issues/1164) due to a Webpack bug.
 - Some editors like Vim and IntelliJ have a “safe write” feature that currently breaks the watcher. You will need to disable it. Follow the instructions in [“Adjusting Your Text Editor”](https://webpack.js.org/guides/development/#adjusting-your-text-editor).
 - If your project path contains parentheses, try moving the project to a path without them. This is caused by a [Webpack watcher bug](https://github.com/webpack/watchpack/issues/42).
 - On Linux and macOS, you might need to [tweak system settings](https://github.com/webpack/docs/wiki/troubleshooting#not-enough-watchers) to allow more watchers.

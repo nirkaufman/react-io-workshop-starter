@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import NavBar from "./shared/Navbar";
+import RenderPropPage from "./labs/04_render_props/start/RenderPropPage";
+import PerformancePage from "./labs/05_performance/start/PerformancePage";
 
 class App extends Component {
   render() {
@@ -7,7 +9,7 @@ class App extends Component {
       <>
         <NavBar/>
         <div className="container">
-          <p className="lead">Starter project for the React IO workshop</p>
+            <PerformancePage />
         </div>
       </>
     );
