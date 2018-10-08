@@ -1,19 +1,59 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+
+const videoRef = React.createRef();
+const videoCtx = React.createContext();
 
 class VideoPlayer extends Component {
+
+  static Play = ({children}) => (
+    <videoCtx.Consumer>
+      {({play}) => (
+        <button className="btn btn-primary"
+                onClick={play}>{children}</button>
+      )}
+    </videoCtx.Consumer>
+  );
+
+  static Pause = ({children}) => (
+    <videoCtx.Consumer>
+      {({pause}) => (
+        <button className="btn btn-primary" onClick={pause}>{children}</button>
+      )}
+    </videoCtx.Consumer>
+  );
+
+  static Player = () => {
+    return (
+      <videoCtx.Consumer>
+        {({controls, file}) => (
+          <video width="600"
+                 ref={videoRef}
+                 controls={controls}
+                 src={file}/>
+        )}
+      </videoCtx.Consumer>
+    )
+  };
+
+  play = () => {
+    videoRef.current.play();
+  };
+
+  pause = () => {
+    videoRef.current.pause();
+  };
+
   render() {
     return (
-      <video width="600"
-             controls={this.props.controls}
-             src={this.props.file}/>
+      <videoCtx.Provider value={{
+        play: this.play,
+        pause: this.pause,
+        file: this.props.file
+      }}>
+        {this.props.children}
+      </videoCtx.Provider>
     );
   }
 }
-
-VideoPlayer.propTypes = {
-  file: PropTypes.string,
-  controls: PropTypes.bool
-};
 
 export default VideoPlayer;

@@ -1,5 +1,23 @@
 import React, {Component} from 'react';
 
+
+class Rows extends Component {
+  render() {
+    return (
+      <div>
+        { this.props.users.map((user, index) => (
+          <tr key={index}>
+            <th>{index}</th>
+            <td>{user.name}</td>
+            <td>{user.email}</td>
+            <td>{user.location.city}</td>
+          </tr>
+        ))}
+      </div>
+    );
+  }
+}
+
 class BetterTable extends Component {
 
   state = {users: [], selectedUser: null};
@@ -48,14 +66,9 @@ class BetterTable extends Component {
           </tr>
           </thead>
           <tbody>
-          {this.state.users.map((user, index) => (
-            <tr onClick={() => this.select(user)}>
-              <th>{index}</th>
-              <td>{this.getFullName(user)}</td>
-              <td>{user.email}</td>
-              <td>{user.location.city}</td>
-            </tr>
-          ))}
+
+          <Rows users={this.state.users} />
+
           </tbody>
         </table>
       </div>

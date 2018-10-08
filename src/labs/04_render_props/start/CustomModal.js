@@ -6,22 +6,30 @@ class CustomModal extends Component {
       <div className="modal" style={modalStyle}>
         <div className="modal-dialog">
           <div className="modal-content">
+
             <div className="modal-header">
-              <h5 className="modal-title">Modal title</h5>
+              {this.props.header()}
               <button className="close"><span>&times;</span></button>
             </div>
+
             <div className="modal-body">
-              <p>Modal body text goes here.</p>
+              {this.props.content()}
             </div>
+
             <div className="modal-footer">
-              <button className="btn btn-secondary">Close</button>
-              <button className="btn btn-primary">Save changes</button>
+              {this.props.footer()}
+              <button onClick={this.props.alert}>alert</button>
             </div>
+
           </div>
         </div>
       </div>
     );
   }
+}
+
+CustomModal.defaultProps = {
+  footer: () => ''
 }
 
 const modalStyle = {
